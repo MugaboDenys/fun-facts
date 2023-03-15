@@ -1,13 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Main from './components/Main';
+import { useState } from 'react';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true)
+  
+  function toggleDarkMode () {
+    setDarkMode(dark => !dark)
+  }
+
   return (
-    <div className="App">
-      <h1 className="text-3xl text-cyan-300 font-bold underline">
-      Hello world!
-    </h1>
-    </div>
+    <div className="container">
+            <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            <Main darkMode={darkMode} />
+        </div>
   );
 }
 
